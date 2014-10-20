@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- This file is part survey module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="Survey">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <newline/>
+    <field name="fields_" colspan="4"/>
+</form>

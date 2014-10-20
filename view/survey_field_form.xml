@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- This file is part survey module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="Survey Field">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="string"/>
+    <field name="string"/>
+    <label name="type_"/>
+    <field name="type_"/>
+    <label name="required"/>
+    <field name="required"/>
+    <label name="help_"/>
+    <field name="help_"/>
+    <label name="textarea"/>
+    <field name="textarea"/>
+    <label name="digits"/>
+    <field name="digits"/>
+    <label name="sequence"/>
+    <field name="sequence"/>
+    <separator name="selection" colspan="4"/>
+    <field name="selection" colspan="4"/>
+</form>

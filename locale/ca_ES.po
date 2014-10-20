@@ -1,0 +1,231 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:survey.configuration,create_date:"
+msgid "Create Date"
+msgstr "Data dcreació"
+
+msgctxt "field:survey.configuration,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:survey.configuration,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:survey.configuration,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:survey.configuration,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:survey.configuration,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:survey.field,create_date:"
+msgid "Create Date"
+msgstr "Data dcreació"
+
+msgctxt "field:survey.field,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:survey.field,digits:"
+msgid "Digits"
+msgstr "Dígits"
+
+msgctxt "field:survey.field,help_:"
+msgid "Help"
+msgstr "Ajuda"
+
+msgctxt "field:survey.field,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:survey.field,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:survey.field,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:survey.field,required:"
+msgid "Required"
+msgstr "Requerit"
+
+msgctxt "field:survey.field,selection:"
+msgid "Selection"
+msgstr "Selecció"
+
+msgctxt "field:survey.field,selection_json:"
+msgid "Selection JSON"
+msgstr "Selecció JSON"
+
+msgctxt "field:survey.field,sequence:"
+msgid "Sequence"
+msgstr "Seqüència"
+
+msgctxt "field:survey.field,string:"
+msgid "String"
+msgstr "Etiqueta"
+
+msgctxt "field:survey.field,survey:"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "field:survey.field,textarea:"
+msgid "Textarea"
+msgstr "Textarea"
+
+msgctxt "field:survey.field,type_:"
+msgid "Type"
+msgstr "Tipus"
+
+msgctxt "field:survey.field,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:survey.field,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:survey.survey,code:"
+msgid "Code"
+msgstr "Codi"
+
+msgctxt "field:survey.survey,create_date:"
+msgid "Create Date"
+msgstr "Data dcreació"
+
+msgctxt "field:survey.survey,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:survey.survey,fields_:"
+msgid "Fields"
+msgstr "Camps"
+
+msgctxt "field:survey.survey,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:survey.survey,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:survey.survey,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:survey.survey,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:survey.survey,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "help:survey.field,selection:"
+msgid "A couple of key and label separated by \":\" per line"
+msgstr "Clau i valor separats per \":\" a cada línia."
+
+msgctxt "help:survey.field,textarea:"
+msgid "Text multiple lines"
+msgstr "Text en multiples línies"
+
+msgctxt "model:ir.action,name:act_survey"
+msgid "Survey Design"
+msgstr "Disseny enquestes"
+
+msgctxt "model:ir.action,name:act_survey_configuration"
+msgid "Survey Configuration"
+msgstr "Confguració enquestes"
+
+msgctxt "model:ir.action,name:act_survey_field"
+msgid "Survey Field"
+msgstr "Camp enquesta"
+
+msgctxt "model:ir.ui.menu,name:menu_configuration"
+msgid "Configuration"
+msgstr "Configuració"
+
+msgctxt "model:ir.ui.menu,name:menu_survey"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "model:ir.ui.menu,name:menu_survey_configuration_form"
+msgid "Configuration"
+msgstr "Configuració"
+
+msgctxt "model:ir.ui.menu,name:menu_survey_form"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "model:res.group,name:group_survey"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "model:res.group,name:group_survey_admin"
+msgid "Survey Administration"
+msgstr "Administració enquestes"
+
+msgctxt "model:survey.configuration,name:"
+msgid "Survey Configuration"
+msgstr "Confguració enquestes"
+
+msgctxt "model:survey.field,name:"
+msgid "Survey Field"
+msgstr "Camp enquesta"
+
+msgctxt "model:survey.survey,name:"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Boolean"
+msgstr "Booleà"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Char"
+msgstr "Text"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "selection:survey.field,type_:"
+msgid "DateTime"
+msgstr "Data/Hora"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Float"
+msgstr "Número coma flotant"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Integer"
+msgstr "Enter"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Numeric"
+msgstr "Numèric"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Selection"
+msgstr "Selecció"
+
+msgctxt "view:survey.configuration:"
+msgid "Survey Configuration"
+msgstr "Confguració enquestes"
+
+msgctxt "view:survey.field:"
+msgid "Survey Field"
+msgstr "Camp enquesta"
+
+msgctxt "view:survey.survey:"
+msgid "Survey"
+msgstr "Enquesta"

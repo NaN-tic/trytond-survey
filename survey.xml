@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!-- This file is part survey module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <!-- Groups -->
+        <record model="res.group" id="group_survey_admin">
+            <field name="name">Survey Administration</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_survey_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_survey_admin"/>
+        </record>
+
+        <record model="res.group" id="group_survey">
+            <field name="name">Survey</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_survey">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_survey"/>
+        </record>
+
+        <!-- Icon -->
+        <record model="ir.ui.icon" id="survey_icon">
+            <field name="name">tryton-survey</field>
+            <field name="path">icons/tryton-survey.svg</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_survey" name="Survey" sequence="1" icon="tryton-survey"/>
+        <record model="ir.ui.menu-res.group" id="menu_survey_group_survey">
+            <field name="menu" ref="menu_survey"/>
+            <field name="group" ref="group_survey"/>
+        </record>
+
+        <menuitem name="Configuration" parent="menu_survey"
+            id="menu_configuration" sequence="0" icon="tryton-preferences"/>
+        <record model="ir.ui.menu-res.group" id="menu_configuration_group_survey_admin">
+            <field name="menu" ref="menu_configuration"/>
+            <field name="group" ref="group_survey_admin"/>
+        </record>
+
+        <!-- Configuration -->
+        <record model="ir.ui.view" id="survey_configuration_view_form">
+            <field name="model">survey.configuration</field>
+            <field name="type">form</field>
+            <field name="name">configuration_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_survey_configuration">
+            <field name="name">Survey Configuration</field>
+            <field name="res_model">survey.configuration</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_survey_configuration_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="survey_configuration_view_form"/>
+            <field name="act_window" ref="act_survey_configuration"/>
+        </record>
+
+        <record model="ir.model.access" id="access_survey_configuration">
+            <field name="model" search="[('model', '=', 'survey.configuration')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_survey_configuration_group_survey_admin">
+            <field name="model" search="[('model', '=', 'survey.configuration')]"/>
+            <field name="group" ref="group_survey_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <menuitem action="act_survey_configuration" id="menu_survey_configuration_form"
+            name="Configuration" parent="menu_configuration" sequence="1" icon="tryton-list"/>
+
+        <!-- Survey -->
+        <record model="ir.ui.view" id="survey_view_form">
+            <field name="model">survey.survey</field>
+            <field name="type">form</field>
+            <field name="name">survey_form</field>
+        </record>
+        <record model="ir.ui.view" id="survey_view_list">
+            <field name="model">survey.survey</field>
+            <field name="type">tree</field>
+            <field name="name">survey_list</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_survey">
+            <field name="name">Survey Design</field>
+            <field name="res_model">survey.survey</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_survey_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="survey_view_list"/>
+            <field name="act_window" ref="act_survey"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_survey_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="survey_view_form"/>
+            <field name="act_window" ref="act_survey"/>
+        </record>
+
+        <record model="ir.model.access" id="access_survey">
+            <field name="model" search="[('model', '=', 'survey.survey')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_survey_group_survey_admin">
+            <field name="model" search="[('model', '=', 'survey.survey')]"/>
+            <field name="group" ref="group_survey_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <menuitem action="act_survey" id="menu_survey_form" name="Survey"
+            parent="menu_configuration" sequence="10"/>
+
+        <!-- Survey Field -->
+        <record model="ir.ui.view" id="survey_field_view_form">
+            <field name="model">survey.field</field>
+            <field name="type">form</field>
+            <field name="name">survey_field_form</field>
+        </record>
+        <record model="ir.ui.view" id="survey_field_view_list">
+            <field name="model">survey.field</field>
+            <field name="type">tree</field>
+            <field name="name">survey_field_list</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_survey_field">
+            <field name="name">Survey Field</field>
+            <field name="res_model">survey.field</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_survey_field_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="survey_field_view_list"/>
+            <field name="act_window" ref="act_survey_field"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_survey_field_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="survey_field_view_form"/>
+            <field name="act_window" ref="act_survey_field"/>
+        </record>
+
+        <record model="ir.model.access" id="access_survey_field">
+            <field name="model" search="[('model', '=', 'survey.field')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_survey_field_group_survey_admin">
+            <field name="model" search="[('model', '=', 'survey.field')]"/>
+            <field name="group" ref="group_survey_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

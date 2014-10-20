@@ -1,0 +1,231 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:survey.configuration,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:survey.configuration,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:survey.configuration,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:survey.configuration,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:survey.configuration,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:survey.configuration,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:survey.field,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:survey.field,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:survey.field,digits:"
+msgid "Digits"
+msgstr "Dígitos"
+
+msgctxt "field:survey.field,help_:"
+msgid "Help"
+msgstr "Ayuda"
+
+msgctxt "field:survey.field,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:survey.field,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:survey.field,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:survey.field,required:"
+msgid "Required"
+msgstr "Requerido"
+
+msgctxt "field:survey.field,selection:"
+msgid "Selection"
+msgstr "Selección"
+
+msgctxt "field:survey.field,selection_json:"
+msgid "Selection JSON"
+msgstr "Selección JSON"
+
+msgctxt "field:survey.field,sequence:"
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgctxt "field:survey.field,string:"
+msgid "String"
+msgstr "Etiqueta"
+
+msgctxt "field:survey.field,survey:"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "field:survey.field,textarea:"
+msgid "Textarea"
+msgstr "Textarea"
+
+msgctxt "field:survey.field,type_:"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "field:survey.field,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:survey.field,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:survey.survey,code:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:survey.survey,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:survey.survey,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:survey.survey,fields_:"
+msgid "Fields"
+msgstr "Campos"
+
+msgctxt "field:survey.survey,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:survey.survey,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:survey.survey,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:survey.survey,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:survey.survey,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "help:survey.field,selection:"
+msgid "A couple of key and label separated by \":\" per line"
+msgstr "Clave y valor separados por \":\" en cada línea."
+
+msgctxt "help:survey.field,textarea:"
+msgid "Text multiple lines"
+msgstr "Texto en múltiples líneas"
+
+msgctxt "model:ir.action,name:act_survey"
+msgid "Survey Design"
+msgstr "Diseño encuestas"
+
+msgctxt "model:ir.action,name:act_survey_configuration"
+msgid "Survey Configuration"
+msgstr "Configuración encuestas"
+
+msgctxt "model:ir.action,name:act_survey_field"
+msgid "Survey Field"
+msgstr "Campo encuesta"
+
+msgctxt "model:ir.ui.menu,name:menu_configuration"
+msgid "Configuration"
+msgstr "Configuración"
+
+msgctxt "model:ir.ui.menu,name:menu_survey"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "model:ir.ui.menu,name:menu_survey_configuration_form"
+msgid "Configuration"
+msgstr "Configuración"
+
+msgctxt "model:ir.ui.menu,name:menu_survey_form"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "model:res.group,name:group_survey"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "model:res.group,name:group_survey_admin"
+msgid "Survey Administration"
+msgstr "Administrador encuestas"
+
+msgctxt "model:survey.configuration,name:"
+msgid "Survey Configuration"
+msgstr "Configuración encuestas"
+
+msgctxt "model:survey.field,name:"
+msgid "Survey Field"
+msgstr "Campo encuesta"
+
+msgctxt "model:survey.survey,name:"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Boolean"
+msgstr "Booleano"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Char"
+msgstr "Texto"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "selection:survey.field,type_:"
+msgid "DateTime"
+msgstr "Fecha/Hora"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Float"
+msgstr "Número coma flotante"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Integer"
+msgstr "Entero"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Numeric"
+msgstr "Numérico"
+
+msgctxt "selection:survey.field,type_:"
+msgid "Selection"
+msgstr "Selección"
+
+msgctxt "view:survey.configuration:"
+msgid "Survey Configuration"
+msgstr "Configuración encuestas"
+
+msgctxt "view:survey.field:"
+msgid "Survey Field"
+msgstr "Campo encuesta"
+
+msgctxt "view:survey.survey:"
+msgid "Survey"
+msgstr "Encuesta"
