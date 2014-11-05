@@ -34,9 +34,17 @@ msgctxt "field:survey.field,create_uid:"
 msgid "Create User"
 msgstr "Usuario creación"
 
+msgctxt "field:survey.field,default_value:"
+msgid "Default"
+msgstr "Por defecto"
+
 msgctxt "field:survey.field,digits:"
 msgid "Digits"
 msgstr "Dígitos"
+
+msgctxt "field:survey.field,email:"
+msgid "Email"
+msgstr "Email"
 
 msgctxt "field:survey.field,help_:"
 msgid "Help"
@@ -86,6 +94,10 @@ msgctxt "field:survey.field,type_:"
 msgid "Type"
 msgstr "Tipo"
 
+msgctxt "field:survey.field,url:"
+msgid "URL"
+msgstr "URL"
+
 msgctxt "field:survey.field,write_date:"
 msgid "Write Date"
 msgstr "Fecha modificación"
@@ -134,6 +146,14 @@ msgctxt "field:survey.survey,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "help:survey.field,default_value:"
+msgid "Default value in field"
+msgstr "Valor por defecto en el campo"
+
+msgctxt "help:survey.field,email:"
+msgid "Text email field"
+msgstr "El campo es un correo electrónico"
+
 msgctxt "help:survey.field,selection:"
 msgid "A couple of key and label separated by \":\" per line"
 msgstr "Clave y valor separados por \":\" en cada línea."
@@ -141,6 +161,10 @@ msgstr "Clave y valor separados por \":\" en cada línea."
 msgctxt "help:survey.field,textarea:"
 msgid "Text multiple lines"
 msgstr "Texto en múltiples líneas"
+
+msgctxt "help:survey.field,url:"
+msgid "Text URL field"
+msgstr "El campo es una URL"
 
 msgctxt "model:ir.action,name:act_survey"
 msgid "Survey Design"
