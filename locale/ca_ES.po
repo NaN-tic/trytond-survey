@@ -94,6 +94,10 @@ msgctxt "field:survey.field,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
 
+msgctxt "field:survey.survey,active:"
+msgid "Active"
+msgstr "Actiu"
+
 msgctxt "field:survey.survey,code:"
 msgid "Code"
 msgstr "Codi"
