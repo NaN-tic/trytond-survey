@@ -3,5 +3,5 @@
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
 <tree string="Survey">
     <field name="rec_name"/>
-    <fielf name="active" tree_invisible="1"/>
+    <field name="active" tree_invisible="1"/>
 </tree>
