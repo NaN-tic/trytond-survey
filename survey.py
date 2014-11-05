@@ -55,6 +55,18 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
             'invisible': Eval('type_') != 'char',
         }, depends=['type_'],
         help="Text multiple lines")
+    email = fields.Boolean('Email',
+        states={
+            'invisible': Eval('type_') != 'char',
+        }, depends=['type_'],
+        help="Text email field")
+    url = fields.Boolean('URL',
+        states={
+            'invisible': Eval('type_') != 'char',
+        }, depends=['type_'],
+        help="Text URL field")
+    default_value = fields.Char('Default',
+        help='Default value in field')
 
     @staticmethod
     def default_sequence():

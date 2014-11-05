@@ -14,10 +14,16 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <field name="help_"/>
     <label name="textarea"/>
     <field name="textarea"/>
+    <label name="url"/>
+    <field name="url"/>
+    <label name="email"/>
+    <field name="email"/>
     <label name="digits"/>
     <field name="digits"/>
     <label name="sequence"/>
     <field name="sequence"/>
+    <label name="default_value"/>
+    <field name="default_value"/>
     <separator name="selection" colspan="4"/>
     <field name="selection" colspan="4"/>
 </form>
