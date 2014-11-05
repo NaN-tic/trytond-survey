@@ -20,7 +20,12 @@ class Survey(ModelSQL, ModelView):
     __name__ = 'survey.survey'
     name = fields.Char('Name', required=True, translate=True)
     code = fields.Char('Code')
+    active = fields.Boolean('Active')
     fields_ = fields.One2Many('survey.field', 'survey', 'Fields')
+
+    @staticmethod
+    def default_active():
+        return True
 
     def get_rec_name(self, name):
         if self.code:
