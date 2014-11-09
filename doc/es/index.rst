@@ -2,4 +2,4 @@
 Encuestas o formularios
 =======================
 
-Disseño de encuestas o formularios. En cada formulario podrá añadir multiples campos.
+Diseño de encuestas o formularios. Pemite añadir varios campos de diferentes tipos en cada formulario.
