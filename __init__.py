@@ -5,6 +5,7 @@
 from trytond.pool import Pool
 from .survey import *
 
+
 def register():
     Pool.register(
         Configuration,
