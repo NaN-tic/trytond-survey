@@ -68,6 +68,11 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         help="Text URL field")
     default_value = fields.Char('Default',
         help='Default value in field')
+    password = fields.Boolean('Password',
+        states={
+            'invisible': Eval('type_') != 'char',
+        }, depends=['type_'],
+        help="Text password field")
 
     @staticmethod
     def default_sequence():
