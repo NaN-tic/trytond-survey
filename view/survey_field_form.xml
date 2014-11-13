@@ -18,6 +18,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <field name="url"/>
     <label name="email"/>
     <field name="email"/>
+    <label name="password"/>
+    <field name="password"/>
     <label name="digits"/>
     <field name="digits"/>
     <label name="sequence"/>
