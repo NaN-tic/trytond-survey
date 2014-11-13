@@ -35,8 +35,9 @@ class Survey(ModelSQL, ModelView):
             return self.name
 
     @classmethod
-    def save_data(cls, data):
+    def save_data(cls, survey, data):
         '''Get values from a survey
+        :param survey: obj
         :param data: dict
         '''
         return True
