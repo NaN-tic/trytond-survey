@@ -75,6 +75,14 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         }, depends=['type_'],
         help="Text password field")
 
+    target_model = fields.Many2One('ir.model', 'Model',
+        states={
+            'invisible': Not(In(Eval('type_'), ['many2one', 'one2many']))
+        }, depends=['type_'],
+        help='Target Model.')
+    target_value = fields.Integer('Value')
+    target_values = fields.Char('Values')
+
     @staticmethod
     def default_sequence():
         return 1
@@ -83,3 +91,9 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
     def __setup__(cls):
         super(SurveyField, cls).__setup__()
         cls._order.insert(0, ('sequence', 'ASC'))
+        selection = ('many2one', 'Many2One')
+        if selection not in cls.type_.selection:
+            cls.type_.selection.append(selection)
+        selection = ('one2many', 'One2Many')
+        if selection not in cls.type_.selection:
+            cls.type_.selection.append(selection)
