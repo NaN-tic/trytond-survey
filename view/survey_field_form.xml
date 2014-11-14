@@ -26,6 +26,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <field name="sequence"/>
     <label name="default_value"/>
     <field name="default_value"/>
+    <label name="target_model"/>
+    <field name="target_model"/>
     <separator name="selection" colspan="4"/>
     <field name="selection" colspan="4"/>
 </form>
