@@ -14,4 +14,5 @@ def register():
         ActWindow,
         View,
         Menu,
+        DynamicModel,
         module='survey', type_='model')
