@@ -32,6 +32,18 @@ class Survey(ModelSQL, ModelView):
     views = fields.One2Many('ir.ui.view', 'survey', 'Views',
         readonly=True)
 
+    @classmethod
+    def __setup__(cls):
+        super(Survey, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)',
+                'name_uniq'),
+            ]
+        cls._error_messages.update({
+                'name_uniq': ('Cannot create survey because the name must be '
+                    'unique.'),
+                })
+
     @staticmethod
     def default_active():
         return True
