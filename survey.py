@@ -424,7 +424,6 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         }, depends=['type_'],
         help='Target Model.')
     target_value = fields.Integer('Value')
-    target_values = fields.Char('Values')
 
     @staticmethod
     def default_sequence():
@@ -435,9 +434,6 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         super(SurveyField, cls).__setup__()
         cls._order.insert(0, ('sequence', 'ASC'))
         selection = ('many2one', 'Many2One')
-        if selection not in cls.type_.selection:
-            cls.type_.selection.append(selection)
-        selection = ('one2many', 'One2Many')
         if selection not in cls.type_.selection:
             cls.type_.selection.append(selection)
 
