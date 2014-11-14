@@ -11,4 +11,7 @@ def register():
         Configuration,
         Survey,
         SurveyField,
+        ActWindow,
+        View,
+        Menu,
         module='survey', type_='model')

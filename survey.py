@@ -4,10 +4,12 @@
 # copyright notices and license terms.
 from trytond.model import ModelSingleton, ModelSQL, ModelView, \
     DictSchemaMixin, fields
-from trytond.pool import PoolMeta
-from trytond.pyson import Eval
+from trytond.pool import Pool, PoolMeta
+from trytond.pyson import Eval, In, Not
 
-__all__ = ['Configuration', 'Survey', 'SurveyField']
+
+__all__ = ['Configuration', 'Survey', 'SurveyField', 'View', 'Menu',
+    'ActWindow']
 __metaclass__ = PoolMeta
 
 
@@ -23,6 +25,12 @@ class Survey(ModelSQL, ModelView):
     code = fields.Char('Code')
     active = fields.Boolean('Active')
     fields_ = fields.One2Many('survey.field', 'survey', 'Fields')
+    menus = fields.One2Many('ir.ui.menu', 'survey', 'Menus',
+        readonly=True)
+    action_windows = fields.One2Many('ir.action.act_window', 'survey',
+        'Actions', readonly=True)
+    views = fields.One2Many('ir.ui.view', 'survey', 'Views',
+        readonly=True)
 
     @staticmethod
     def default_active():
@@ -97,3 +105,21 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         selection = ('one2many', 'One2Many')
         if selection not in cls.type_.selection:
             cls.type_.selection.append(selection)
+
+
+class ActWindow:
+    __name__ = 'ir.action.act_window'
+
+    survey = fields.Many2One('survey.survey', 'Survey')
+
+
+class View:
+    __name__ = 'ir.ui.view'
+
+    survey = fields.Many2One('survey.survey', 'Survey')
+
+
+class Menu:
+    __name__ = 'ir.ui.menu'
+
+    survey = fields.Many2One('survey.survey', 'Survey')
