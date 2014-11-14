@@ -44,7 +44,7 @@ class Survey(ModelSQL, ModelView):
 
 
 class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
-    "Survey Field"
+    'Survey Field'
     __name__ = 'survey.field'
     _rec_name = 'sequence'
     survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE',
@@ -56,17 +56,17 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         states={
             'invisible': Eval('type_') != 'char',
         }, depends=['type_'],
-        help="Text multiple lines")
+        help='Text multiple lines')
     email = fields.Boolean('Email',
         states={
             'invisible': Eval('type_') != 'char',
         }, depends=['type_'],
-        help="Text email field")
+        help='Text email field')
     url = fields.Boolean('URL',
         states={
             'invisible': Eval('type_') != 'char',
         }, depends=['type_'],
-        help="Text URL field")
+        help='Text URL field')
     default_value = fields.Char('Default',
         help='Default value in field')
     password = fields.Boolean('Password',
