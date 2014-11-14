@@ -110,7 +110,6 @@ class DynamicModel(ModelStorage):
             '__doc__': 'Survey %s' % survey_id,
             '__name__': 'survey.%s' % survey_id,
             '_defaults': {},
-#             '_error_messages': {},
             'fields_view_get': cls.fields_view_get,
             }
         body.update(cls.get_fields(survey_id))
@@ -119,10 +118,8 @@ class DynamicModel(ModelStorage):
     @classmethod
     def __setup_class__(cls, Class):
         'Register class an return model'
-#         pool = Pool()
         Pool.register(Class, module='survey', type_='model')
         super(Class, Class).__setup__()
-#         pool.add(Class, type='model')
 
     @classmethod
     def __post_setup_class__(cls, Class):
@@ -169,20 +166,6 @@ class DynamicModel(ModelStorage):
                 result[name] = fields.Many2One(model.model, name,
                     ondelete='SET NULL')
         return result
-
-#     def get_rec_name(self, name):
-#         result = []
-#         for field in self.fields_:
-#             value = getattr(self, field)
-#             if not value:
-#                 result.append('-')
-#             elif isinstance(value, ModelSQL):
-#                 result.append(value.rec_name)
-#             elif not isinstance(value, unicode):
-#                 result.append(unicode(value))
-#             else:
-#                 result.append(value)
-#         return ' / '.join(result)
 
 
 class Configuration(ModelSingleton, ModelSQL, ModelView):
