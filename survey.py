@@ -18,12 +18,16 @@ _slugify_strip_re = re.compile(r'[^\w\s-]')
 _slugify_underscore_re = re.compile(r'[-\s]+')
 
 
+def remove_accents(value):
+    return unicodedata.normalize('NFKD', value).encode('ascii', 'ignore')
+
+
 def slugify(value):
     string = False
     if not isinstance(value, unicode):
         value = unicode(value)
         string = True
-    value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore')
+    value = remove_accents(value)
     value = unicode(_slugify_strip_re.sub('', value).strip().lower())
     value = _slugify_underscore_re.sub('_', value)
     if string:
@@ -172,20 +176,21 @@ class DynamicModel(ModelStorage):
         for string, digits, target_model, type_, selection in (
                 cursor.fetchall()):
             name = '%s' % slugify(string)
+            label = remove_accents(string)
             if type_ in field_type:
-                result[name] = field_type[type_](name)
+                result[name] = field_type[type_](label)
             elif type_ == 'float':
-                result[name] = fields.Float(name, digits=(16, digits))
+                result[name] = fields.Float(label, digits=(16, digits))
             elif type_ == 'numeric':
-                result[name] = fields.Numeric(name, digits=(16, digits))
+                result[name] = fields.Numeric(label, digits=(16, digits))
             elif type_ == 'many2one':
                 model = Model(target_model)
-                result[name] = fields.Many2One(model.model, name,
+                result[name] = fields.Many2One(model.model, label,
                     ondelete='SET NULL')
             elif type_ == 'selection':
                 selection = [[w.strip() for w in v.split(':', 1)]
                         for v in selection.splitlines() if v]
-                result[name] = fields.Selection(selection, name)
+                result[name] = fields.Selection(selection, label)
         return result
 
 
