@@ -2,9 +2,57 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "error:survey.survey:"
+msgid "Cannot create survey because the name must be unique."
+msgstr "No es pot crear l'enquesta perquè el nom ha de ser únic."
+
+msgctxt "error:survey.survey:"
+msgid "Survey %s has data and so cannot be dropped."
+msgstr "L'enquesta %s té dades i per tant no es pot esborrar."
+
+msgctxt "error:survey.survey:"
+msgid "name_uniq"
+msgstr "name_unic"
+
+msgctxt "field:DynamicModel,create_date:"
+msgid "Create Date"
+msgstr "Data creació"
+
+msgctxt "field:DynamicModel,create_uid:"
+msgid "Create User"
+msgstr "Usuari creació"
+
+msgctxt "field:DynamicModel,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:DynamicModel,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:DynamicModel,write_date:"
+msgid "Write Date"
+msgstr "Data modificació"
+
+msgctxt "field:DynamicModel,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:ir.action.act_window,survey:"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "field:ir.ui.menu,survey:"
+msgid "Survey"
+msgstr "Enquesta"
+
+msgctxt "field:ir.ui.view,survey:"
+msgid "Survey"
+msgstr "Enquesta"
+
 msgctxt "field:survey.configuration,create_date:"
 msgid "Create Date"
-msgstr "Data dcreació"
+msgstr "Data creació"
 
 msgctxt "field:survey.configuration,create_uid:"
 msgid "Create User"
@@ -28,7 +76,7 @@ msgstr "Usuari modificació"
 
 msgctxt "field:survey.field,create_date:"
 msgid "Create Date"
-msgstr "Data dcreació"
+msgstr "Data creació"
 
 msgctxt "field:survey.field,create_uid:"
 msgid "Create User"
@@ -58,6 +106,10 @@ msgctxt "field:survey.field,name:"
 msgid "Name"
 msgstr "Nom"
 
+msgctxt "field:survey.field,password:"
+msgid "Password"
+msgstr "Contrasenya"
+
 msgctxt "field:survey.field,rec_name:"
 msgid "Name"
 msgstr "Nom"
@@ -74,6 +126,10 @@ msgctxt "field:survey.field,selection_json:"
 msgid "Selection JSON"
 msgstr "Selecció JSON"
 
+msgctxt "field:survey.field,selection_sorted:"
+msgid "Selection Sorted"
+msgstr "Selecció ordenada"
+
 msgctxt "field:survey.field,sequence:"
 msgid "Sequence"
 msgstr "Seqüència"
@@ -85,6 +141,14 @@ msgstr "Etiqueta"
 msgctxt "field:survey.field,survey:"
 msgid "Survey"
 msgstr "Enquesta"
+
+msgctxt "field:survey.field,target_model:"
+msgid "Model"
+msgstr "Model"
+
+msgctxt "field:survey.field,target_value:"
+msgid "Value"
+msgstr "Valor"
 
 msgctxt "field:survey.field,textarea:"
 msgid "Textarea"
@@ -106,6 +170,10 @@ msgctxt "field:survey.field,write_uid:"
 msgid "Write User"
 msgstr "Usuari modificació"
 
+msgctxt "field:survey.survey,action_windows:"
+msgid "Actions"
+msgstr "Accions"
+
 msgctxt "field:survey.survey,active:"
 msgid "Active"
 msgstr "Actiu"
@@ -116,7 +184,7 @@ msgstr "Codi"
 
 msgctxt "field:survey.survey,create_date:"
 msgid "Create Date"
-msgstr "Data dcreació"
+msgstr "Data creació"
 
 msgctxt "field:survey.survey,create_uid:"
 msgid "Create User"
@@ -130,6 +198,10 @@ msgctxt "field:survey.survey,id:"
 msgid "ID"
 msgstr "ID"
 
+msgctxt "field:survey.survey,menus:"
+msgid "Menus"
+msgstr "Menús"
+
 msgctxt "field:survey.survey,name:"
 msgid "Name"
 msgstr "Nom"
@@ -137,6 +209,10 @@ msgstr "Nom"
 msgctxt "field:survey.survey,rec_name:"
 msgid "Name"
 msgstr "Nom"
+
+msgctxt "field:survey.survey,views:"
+msgid "Views"
+msgstr "Vistes"
 
 msgctxt "field:survey.survey,write_date:"
 msgid "Write Date"
@@ -154,9 +230,21 @@ msgctxt "help:survey.field,email:"
 msgid "Text email field"
 msgstr "El camp és un correu"
 
+msgctxt "help:survey.field,password:"
+msgid "Text password field"
+msgstr "Camp de text contrasenya"
+
 msgctxt "help:survey.field,selection:"
 msgid "A couple of key and label separated by \":\" per line"
 msgstr "Clau i valor separats per \":\" a cada línia."
+
+msgctxt "help:survey.field,selection_sorted:"
+msgid "If the selection must be sorted on label"
+msgstr "Si la selecció s'ha d'ordenar per etiqueta"
+
+msgctxt "help:survey.field,target_model:"
+msgid "Target Model."
+msgstr "Model de destí."
 
 msgctxt "help:survey.field,textarea:"
 msgid "Text multiple lines"
@@ -165,6 +253,10 @@ msgstr "Text en multiples línies"
 msgctxt "help:survey.field,url:"
 msgid "Text URL field"
 msgstr "El camp és una URL"
+
+msgctxt "model:DynamicModel,name:"
+msgid "Dynamic Model"
+msgstr "Model dinàmic"
 
 msgctxt "model:ir.action,name:act_survey"
 msgid "Survey Design"
@@ -239,6 +331,10 @@ msgid "Integer"
 msgstr "Enter"
 
 msgctxt "selection:survey.field,type_:"
+msgid "Many2One"
+msgstr "Molts a un"
+
+msgctxt "selection:survey.field,type_:"
 msgid "Numeric"
 msgstr "Numèric"
 
@@ -253,6 +349,18 @@ msgstr "Confguració enquestes"
 msgctxt "view:survey.field:"
 msgid "Survey Field"
 msgstr "Camp enquesta"
+
+msgctxt "view:survey.survey:"
+msgid "Create Menus"
+msgstr "Crea menús"
+
+msgctxt "view:survey.survey:"
+msgid "Fields"
+msgstr "Camps"
+
+msgctxt "view:survey.survey:"
+msgid "Remove Menus"
+msgstr "Esborra menús"
 
 msgctxt "view:survey.survey:"
 msgid "Survey"
