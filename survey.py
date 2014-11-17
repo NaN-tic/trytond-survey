@@ -222,6 +222,8 @@ class Survey(ModelSQL, ModelView):
         cls._error_messages.update({
                 'name_uniq': ('Cannot create survey because the name must be '
                     'unique.'),
+                'survey_with_data': 'Survey %s has data and so cannot be '
+                    'dropped.',
                 })
 
     def create_table(self):
@@ -378,14 +380,25 @@ class Survey(ModelSQL, ModelView):
         action_windows = []
         views = []
         menus = []
-        cls.drop_table(surveys)
         for survey in surveys:
+            has_surveys = False
+            try:
+                Survey = pool.get('survey.%s' % survey.id)
+                has_surveys = Survey.search([])
+            except:
+                cursor = Transaction().cursor
+                cursor.rollback()
+                continue
+            if has_surveys:
+                cls.raise_user_error('survey_with_data',
+                    error_args=(survey.id,))
             action_windows += survey.action_windows
             views += survey.views
             menus += survey.menus
         Menu.delete(menus)
         View.delete(views)
         ActionWindow.delete(action_windows)
+        cls.drop_table(surveys)
         return 'reload menu'
 
     @staticmethod
