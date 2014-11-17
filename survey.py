@@ -220,8 +220,8 @@ class Survey(ModelSQL, ModelView):
                 'name_uniq'),
             ]
         cls._error_messages.update({
-                'name_uniq': ('Cannot create survey because the name must be '
-                    'unique.'),
+                'name_uniq': 'Cannot create survey because the name must be '
+                    'unique.',
                 'survey_with_data': 'Survey %s has data and so cannot be '
                     'dropped.',
                 })
