@@ -480,16 +480,16 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
 class ActWindow:
     __name__ = 'ir.action.act_window'
 
-    survey = fields.Many2One('survey.survey', 'Survey')
+    survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE')
 
 
 class View:
     __name__ = 'ir.ui.view'
 
-    survey = fields.Many2One('survey.survey', 'Survey')
+    survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE')
 
 
 class Menu:
     __name__ = 'ir.ui.menu'
 
-    survey = fields.Many2One('survey.survey', 'Survey')
+    survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE')
