@@ -154,6 +154,10 @@ msgctxt "field:survey.field,textarea:"
 msgid "Textarea"
 msgstr "Textarea"
 
+msgctxt "field:survey.field,tree_view:"
+msgid "Tree View"
+msgstr "Vista listado"
+
 msgctxt "field:survey.field,type_:"
 msgid "Type"
 msgstr "Tipo"
