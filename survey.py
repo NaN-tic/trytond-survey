@@ -107,7 +107,8 @@ class DynamicModel(ModelStorage):
         if view_type == 'tree':
             xml = '<tree string="%s">\n' % survey.name
             for field in fields:
-                xml += '<field name="%s"/>\n' % slugify(field.string)
+                if field.tree_view:
+                    xml += '<field name="%s"/>\n' % slugify(field.string)
             xml += '</tree>\n'
             result['arch'] = xml
         elif view_type == 'form':
@@ -435,6 +436,7 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
     survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE',
         select=True)
     sequence = fields.Integer('Sequence')
+    tree_view = fields.Boolean('Tree View')
     required = fields.Boolean('Required')
     help_ = fields.Char('Help', translate=True)
     textarea = fields.Boolean('Textarea',
@@ -471,6 +473,10 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
     @staticmethod
     def default_sequence():
         return 1
+
+    @staticmethod
+    def default_tree_view():
+        return True
 
     @classmethod
     def __setup__(cls):

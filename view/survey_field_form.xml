@@ -24,6 +24,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <field name="digits"/>
     <label name="sequence"/>
     <field name="sequence"/>
+    <label name="tree_view"/>
+    <field name="tree_view"/>
     <label name="default_value"/>
     <field name="default_value"/>
     <label name="target_model"/>
