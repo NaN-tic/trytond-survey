@@ -2,6 +2,54 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "error:survey.survey:"
+msgid "Cannot create survey because the name must be unique."
+msgstr "No se puede crear la encuesta porque el nombre debe ser único."
+
+msgctxt "error:survey.survey:"
+msgid "Survey %s has data and so cannot be dropped."
+msgstr "La encuesta %s tiene datos y por lo tanto no se puede borrar."
+
+msgctxt "error:survey.survey:"
+msgid "name_uniq"
+msgstr "name_uniq"
+
+msgctxt "field:DynamicModel,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:DynamicModel,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:DynamicModel,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:DynamicModel,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:DynamicModel,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:DynamicModel,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:ir.action.act_window,survey:"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "field:ir.ui.menu,survey:"
+msgid "Survey"
+msgstr "Encuesta"
+
+msgctxt "field:ir.ui.view,survey:"
+msgid "Survey"
+msgstr "Encuesta"
+
 msgctxt "field:survey.configuration,create_date:"
 msgid "Create Date"
 msgstr "Fecha creación"
@@ -58,6 +106,10 @@ msgctxt "field:survey.field,name:"
 msgid "Name"
 msgstr "Nombre"
 
+msgctxt "field:survey.field,password:"
+msgid "Password"
+msgstr "Contraseña"
+
 msgctxt "field:survey.field,rec_name:"
 msgid "Name"
 msgstr "Nombre"
@@ -74,6 +126,10 @@ msgctxt "field:survey.field,selection_json:"
 msgid "Selection JSON"
 msgstr "Selección JSON"
 
+msgctxt "field:survey.field,selection_sorted:"
+msgid "Selection Sorted"
+msgstr "Selección ordenada"
+
 msgctxt "field:survey.field,sequence:"
 msgid "Sequence"
 msgstr "Secuencia"
@@ -85,6 +141,14 @@ msgstr "Etiqueta"
 msgctxt "field:survey.field,survey:"
 msgid "Survey"
 msgstr "Encuesta"
+
+msgctxt "field:survey.field,target_model:"
+msgid "Model"
+msgstr "Modelo"
+
+msgctxt "field:survey.field,target_value:"
+msgid "Value"
+msgstr "Valor"
 
 msgctxt "field:survey.field,textarea:"
 msgid "Textarea"
@@ -105,6 +169,10 @@ msgstr "Fecha modificación"
 msgctxt "field:survey.field,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
+
+msgctxt "field:survey.survey,action_windows:"
+msgid "Actions"
+msgstr "Acciones"
 
 msgctxt "field:survey.survey,active:"
 msgid "Active"
@@ -130,6 +198,10 @@ msgctxt "field:survey.survey,id:"
 msgid "ID"
 msgstr "ID"
 
+msgctxt "field:survey.survey,menus:"
+msgid "Menus"
+msgstr "Menús"
+
 msgctxt "field:survey.survey,name:"
 msgid "Name"
 msgstr "Nombre"
@@ -137,6 +209,10 @@ msgstr "Nombre"
 msgctxt "field:survey.survey,rec_name:"
 msgid "Name"
 msgstr "Nombre"
+
+msgctxt "field:survey.survey,views:"
+msgid "Views"
+msgstr "Vistas"
 
 msgctxt "field:survey.survey,write_date:"
 msgid "Write Date"
@@ -154,9 +230,21 @@ msgctxt "help:survey.field,email:"
 msgid "Text email field"
 msgstr "El campo es un correo electrónico"
 
+msgctxt "help:survey.field,password:"
+msgid "Text password field"
+msgstr "Campo de texto contraseña"
+
 msgctxt "help:survey.field,selection:"
 msgid "A couple of key and label separated by \":\" per line"
 msgstr "Clave y valor separados por \":\" en cada línea."
+
+msgctxt "help:survey.field,selection_sorted:"
+msgid "If the selection must be sorted on label"
+msgstr "Si la selección debe ser ordenada por etiqueta"
+
+msgctxt "help:survey.field,target_model:"
+msgid "Target Model."
+msgstr "Modelo de destino."
 
 msgctxt "help:survey.field,textarea:"
 msgid "Text multiple lines"
@@ -165,6 +253,10 @@ msgstr "Texto en múltiples líneas"
 msgctxt "help:survey.field,url:"
 msgid "Text URL field"
 msgstr "El campo es una URL"
+
+msgctxt "model:DynamicModel,name:"
+msgid "Dynamic Model"
+msgstr "Modelo dinámico"
 
 msgctxt "model:ir.action,name:act_survey"
 msgid "Survey Design"
@@ -239,6 +331,10 @@ msgid "Integer"
 msgstr "Entero"
 
 msgctxt "selection:survey.field,type_:"
+msgid "Many2One"
+msgstr "Muchos a uno"
+
+msgctxt "selection:survey.field,type_:"
 msgid "Numeric"
 msgstr "Numérico"
 
@@ -253,6 +349,18 @@ msgstr "Configuración encuestas"
 msgctxt "view:survey.field:"
 msgid "Survey Field"
 msgstr "Campo encuesta"
+
+msgctxt "view:survey.survey:"
+msgid "Create Menus"
+msgstr "Crea menús"
+
+msgctxt "view:survey.survey:"
+msgid "Fields"
+msgstr "Campos"
+
+msgctxt "view:survey.survey:"
+msgid "Remove Menus"
+msgstr "Borra menús"
 
 msgctxt "view:survey.survey:"
 msgid "Survey"
