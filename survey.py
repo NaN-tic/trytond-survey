@@ -158,6 +158,7 @@ class DynamicModel(ModelStorage):
                 survey_field.digits,
                 survey_field.target_model,
                 survey_field.type_,
+                survey_field.selection,
                 where=(survey_field.survey == survey_id))
         cursor.execute(*query)
         field_type = {
@@ -168,7 +169,8 @@ class DynamicModel(ModelStorage):
             'datetime': fields.DateTime,
             }
         result = {}
-        for string, digits, target_model, type_ in cursor.fetchall():
+        for string, digits, target_model, type_, selection in (
+                cursor.fetchall()):
             name = '%s' % slugify(string)
             if type_ in field_type:
                 result[name] = field_type[type_](name)
@@ -180,6 +182,10 @@ class DynamicModel(ModelStorage):
                 model = Model(target_model)
                 result[name] = fields.Many2One(model.model, name,
                     ondelete='SET NULL')
+            elif type_ == 'selection':
+                selection = [[w.strip() for w in v.split(':', 1)]
+                        for v in selection.splitlines() if v]
+                result[name] = fields.Selection(selection, name)
         return result
 
 
@@ -452,6 +458,10 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
         selection = ('many2one', 'Many2One')
         if selection not in cls.type_.selection:
             cls.type_.selection.append(selection)
+        if 'required' in cls.selection.states:
+            cls.selection.states['required'] |= Eval('type_') == 'selection'
+        else:
+            cls.selection.states['required'] = Eval('type_') == 'selection'
 
 
 class ActWindow:
