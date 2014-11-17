@@ -384,11 +384,13 @@ class Survey(ModelSQL, ModelView):
             has_surveys = False
             try:
                 Survey = pool.get('survey.%s' % survey.id)
-                has_surveys = Survey.search([])
+                try:
+                    has_surveys = Survey.search([])
+                except:
+                    cursor = Transaction().cursor
+                    cursor.rollback()
             except:
-                cursor = Transaction().cursor
-                cursor.rollback()
-                continue
+                pass
             if has_surveys:
                 cls.raise_user_error('survey_with_data',
                     error_args=(survey.id,))
