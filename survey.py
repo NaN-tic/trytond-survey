@@ -341,6 +341,7 @@ class Survey(ModelSQL, ModelView):
 
             Class = DynamicModel.__create_class__(survey.id)
             DynamicModel.__setup_class__(Class)
+            pool.add(Class, type='model')
             DynamicModel.__post_setup_class__(Class)
             DynamicModel.__register_class__(Class, 'survey')
 
