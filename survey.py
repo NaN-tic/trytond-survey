@@ -435,7 +435,8 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
 
     target_model = fields.Many2One('ir.model', 'Model',
         states={
-            'invisible': Not(In(Eval('type_'), ['many2one', 'one2many']))
+            'invisible': Eval('type_') != 'many2one',
+            'required': Eval('type_') == 'many2one',
         }, depends=['type_'],
         help='Target Model.')
     target_value = fields.Integer('Value')
