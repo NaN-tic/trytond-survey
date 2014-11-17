@@ -5,7 +5,7 @@
 from trytond.model import ModelSingleton, ModelSQL, ModelStorage, ModelView, \
     DictSchemaMixin, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.pyson import Eval, In, Not
+from trytond.pyson import Eval
 from trytond.transaction import Transaction
 import re
 import unicodedata
@@ -37,36 +37,51 @@ class DynamicModel(ModelStorage):
     @classmethod
     def __setup__(cls):
         pool = Pool()
-        Survey = pool.get('survey.survey')
-        cursor = Transaction().cursor
-        survey = Survey.__table__()
-        cursor.execute(*survey.select(survey.id))
-        for survey_id in cursor.fetchall():
-            Class = cls.__create_class__(survey_id)
-            cls.__setup_class__(Class)
-        cls._fields = {}
+        if cls.module_survey_installed():
+            Survey = pool.get('survey.survey')
+            cursor = Transaction().cursor
+            survey = Survey.__table__()
+            cursor.execute(*survey.select(survey.id))
+            for survey_id in cursor.fetchall():
+                Class = cls.__create_class__(survey_id)
+                cls.__setup_class__(Class)
+            cls._fields = {}
+        super(DynamicModel, cls).__setup__()
 
     @classmethod
     def __post_setup__(cls):
         pool = Pool()
-        Survey = pool.get('survey.survey')
-        cursor = Transaction().cursor
-        survey = Survey.__table__()
-        cursor.execute(*survey.select(survey.id))
-        for survey_id in cursor.fetchall():
-            Class = pool.get('survey.%s' % survey_id)
-            cls.__post_setup_class__(Class)
+        if cls.module_survey_installed():
+            Survey = pool.get('survey.survey')
+            cursor = Transaction().cursor
+            survey = Survey.__table__()
+            cursor.execute(*survey.select(survey.id))
+            for survey_id in cursor.fetchall():
+                Class = pool.get('survey.%s' % survey_id)
+                cls.__post_setup_class__(Class)
+        super(DynamicModel, cls).__post_setup__()
 
     @classmethod
     def __register__(cls, module_name):
         pool = Pool()
-        Survey = pool.get('survey.survey')
-        cursor = Transaction().cursor
-        survey = Survey.__table__()
-        cursor.execute(*survey.select(survey.id))
-        for survey_id in cursor.fetchall():
-            Class = pool.get('survey.%s' % survey_id)
-            cls.__register_class__(Class, module_name)
+        if cls.module_survey_installed():
+            Survey = pool.get('survey.survey')
+            cursor = Transaction().cursor
+            survey = Survey.__table__()
+            cursor.execute(*survey.select(survey.id))
+            for survey_id in cursor.fetchall():
+                Class = pool.get('survey.%s' % survey_id)
+                cls.__register_class__(Class, module_name)
+        super(DynamicModel, cls).__register__(module_name)
+
+    @classmethod
+    def module_survey_installed(cls):
+        pool = Pool()
+        Module = pool.get('ir.module.module')
+        return Module.search([
+                ('name', '=', 'survey'),
+                ('state', '=', 'installed'),
+                ])
 
     @classmethod
     def fields_view_get(cls, view_id=None, view_type='form'):
