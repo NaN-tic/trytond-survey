@@ -108,19 +108,19 @@ class DynamicModel(ModelStorage):
         if view_type == 'tree':
             xml = '<tree string="%s">\n' % survey.name
             for field in fields:
-                xml += '<field name="%s"/>\n' % slugify(field.string)
+                xml += '<field name="%s"/>\n' % slugify(field.name)
             xml += '</tree>\n'
             result['arch'] = xml
         elif view_type == 'form':
             xml = '<form string="%s" col="2" colspan="4">\n' % survey.name
             for field in fields:
-                xml += '<label name="%s"/>\n' % slugify(field.string)
-                xml += '<field name="%s"/>\n' % slugify(field.string)
+                xml += '<label name="%s"/>\n' % slugify(field.name)
+                xml += '<field name="%s"/>\n' % slugify(field.name)
             xml += '</form>\n'
             result['arch'] = xml
         else:
             assert False
-        fields = [slugify(f.string) for f in fields]
+        fields = [slugify(f.name) for f in fields]
         result['fields'] = Model.fields_get(fields)
         return result
 
@@ -159,7 +159,7 @@ class DynamicModel(ModelStorage):
         cursor = Transaction().cursor
         survey_field = SurveyField.__table__()
         query = survey_field.select(
-                survey_field.string,
+                survey_field.name,
                 survey_field.digits,
                 survey_field.target_model,
                 survey_field.type_,
@@ -266,7 +266,7 @@ class Survey(ModelSQL, ModelView):
             if field.type_ == 'one2many':
                 continue
             else:
-                query += ', %s %s' % (slugify(field.string),
+                query += ', %s %s' % (slugify(field.name),
                     field_type[field.type_])
             if field.required:
                 query += ' NOT NULL'
