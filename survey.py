@@ -180,6 +180,8 @@ class DynamicModel(ModelStorage):
             kvargs = {'string': label}
             if field['required']:
                 kvargs['required'] = True
+            if field['help_']:
+                kvargs['help'] = field['help_']
             if field['type_'] in ('float', 'numeric'):
                 kvargs['digits'] = (16, field['digits'])
             elif field['type_'] == 'many2one':
