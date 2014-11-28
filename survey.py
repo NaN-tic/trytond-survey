@@ -9,6 +9,7 @@ from trytond.pyson import Eval
 from trytond.transaction import Transaction
 import re
 import unicodedata
+import os
 
 
 __all__ = ['Configuration', 'Survey', 'SurveyField', 'View', 'Menu',
@@ -269,8 +270,35 @@ class Survey(ModelSQL, ModelView):
                     field_type[field.type_])
             if field.required:
                 query += ' NOT NULL'
+            if field.type_ == 'many2one':
+                self.add_dependency(field)
         query += ');'
         cursor.execute(query)
+
+    def add_dependency(self, field):
+        pool = Pool()
+        Module = pool.get('ir.module.module')
+        Model = pool.get('ir.model')
+        ModuleDependency = pool.get('ir.module.module.dependency')
+
+        survey, = Module.search([
+                ('name', '=', 'survey')
+                ])
+        dependencies = [m.name for m in ModuleDependency.search([
+                ('module', '=', survey.id),
+                ])]
+        related_model, = Model.search([
+                ('model', '=', field.target_model.model)
+                ])
+        module_depends = related_model.module
+        if module_depends not in dependencies:
+            ModuleDependency.create([{
+            'name': module_depends,
+            'module': survey.id,
+            }])
+            path = os.path.dirname(os.path.realpath(__file__))
+            with open(path + '/tryton.cfg', 'a+') as f:
+                f.write('    %s\n' % module_depends)
 
     def create_action_window(self):
         ActionWindow = Pool().get('ir.action.act_window')
