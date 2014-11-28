@@ -232,6 +232,11 @@ class Survey(ModelSQL, ModelView):
                     'dropped.',
                 })
 
+    @classmethod
+    def delete(cls, surveys):
+        super(Survey, cls).delete(surveys)
+        cls.drop_table(surveys)
+
     def create_table(self):
         transaction = Transaction()
         cursor = transaction.cursor
