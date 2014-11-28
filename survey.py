@@ -52,6 +52,10 @@ class DynamicModel(ModelStorage):
                 cls.__setup_class__(Class)
             cls._fields = {}
         super(DynamicModel, cls).__setup__()
+        cls._error_messages.update({
+                'context_has_not_any_survey': 'Context has not any survey '
+                    'identifier.',
+                })
 
     @classmethod
     def __post_setup__(cls):
@@ -94,7 +98,17 @@ class DynamicModel(ModelStorage):
         View = pool.get('ir.ui.view')
         Survey = pool.get('survey.survey')
 
-        view = View(view_id)
+        if not view_id:
+            context = Transaction().context
+            survey_id = context.get('survey', None)
+            if not survey_id:
+                cls.raise_user_error('context_has_not_any_survey')
+            view, = View.search([
+                    ('model', '=', 'survey.%s' % survey_id),
+                    ('type', '=', view_type),
+                    ], limit=1)
+        else:
+            view = View(view_id)
         Model = pool.get(view.model)
         survey = Survey(int(Model.__name__.split('.')[-1]))
 
