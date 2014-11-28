@@ -204,6 +204,8 @@ class DynamicModel(ModelStorage):
                 kvargs['selection'] = [tuple([w.strip()
                                 for w in v.split(':', 1)])
                         for v in field['selection'].splitlines() if v]
+                if not field['required']:
+                    kvargs['selection'].append((None, ''))
             result[name] = field_type[field['type_']](**kvargs)
         return result
 
