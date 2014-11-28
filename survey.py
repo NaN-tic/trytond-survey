@@ -48,7 +48,7 @@ class DynamicModel(ModelStorage):
             survey = Survey.__table__()
             cursor.execute(*survey.select(survey.id))
             for survey_id in cursor.fetchall():
-                Class = cls.__create_class__(survey_id)
+                Class = cls.__create_class__(survey_id[0])
                 cls.__setup_class__(Class)
             cls._fields = {}
         super(DynamicModel, cls).__setup__()
@@ -159,13 +159,7 @@ class DynamicModel(ModelStorage):
 
         cursor = Transaction().cursor
         survey_field = SurveyField.__table__()
-        query = survey_field.select(
-                survey_field.name,
-                survey_field.digits,
-                survey_field.target_model,
-                survey_field.type_,
-                survey_field.selection,
-                where=(survey_field.survey == survey_id))
+        query = survey_field.select(where=(survey_field.survey == survey_id))
         cursor.execute(*query)
         field_type = {
             'boolean': fields.Boolean,
@@ -173,26 +167,29 @@ class DynamicModel(ModelStorage):
             'char': fields.Char,
             'date': fields.Date,
             'datetime': fields.DateTime,
+            'float': fields.Float,
+            'numeric': fields.Numeric,
+            'many2one': fields.Many2One,
+            'selection': fields.Selection,
             }
         result = {}
-        for string, digits, target_model, type_, selection in (
-                cursor.fetchall()):
-            name = '%s' % slugify(string)
-            label = remove_accents(string)
-            if type_ in field_type:
-                result[name] = field_type[type_](label)
-            elif type_ == 'float':
-                result[name] = fields.Float(label, digits=(16, digits))
-            elif type_ == 'numeric':
-                result[name] = fields.Numeric(label, digits=(16, digits))
-            elif type_ == 'many2one':
-                model = Model(target_model)
-                result[name] = fields.Many2One(model.model, label,
-                    ondelete='SET NULL')
-            elif type_ == 'selection':
-                selection = [[w.strip() for w in v.split(':', 1)]
-                        for v in selection.splitlines() if v]
-                result[name] = fields.Selection(selection, label)
+
+        for field in cursor.dictfetchall():
+            name = remove_accents('%s' % slugify(field['name']))
+            label = field['string']
+            kvargs = {'string': label}
+            if field['required']:
+                kvargs['required'] = True
+            if field['type_'] in ('float', 'numeric'):
+                kvargs['digits'] = (16, field['digits'])
+            elif field['type_'] == 'many2one':
+                kvargs['model_name'] = Model(field['target_model']).model
+                kvargs['ondelete'] = 'SET NULL'
+            elif field['type_'] == 'selection':
+                kvargs['selection'] = [tuple([w.strip()
+                                for w in v.split(':', 1)])
+                        for v in field['selection'].splitlines() if v]
+            result[name] = field_type[field['type_']](**kvargs)
         return result
 
 
