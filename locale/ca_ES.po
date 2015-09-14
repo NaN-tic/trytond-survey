@@ -2,6 +2,10 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "error:DynamicModel:"
+msgid "Context has not any survey identifier."
+msgstr "El context no es disposa de cap indentificador d'enquesta."
+
 msgctxt "error:survey.survey:"
 msgid "Cannot create survey because the name must be unique."
 msgstr "No es pot crear l'enquesta perquè el nom ha de ser únic."
