@@ -86,7 +86,7 @@ class DynamicModel(ModelStorage):
     @classmethod
     def module_survey_installed(cls):
         pool = Pool()
-        Module = pool.get('ir.module.module')
+        Module = pool.get('ir.module')
         return Module.search([
                 ('name', '=', 'survey'),
                 ('state', '=', 'installed'),
@@ -298,9 +298,9 @@ class Survey(ModelSQL, ModelView):
 
     def add_dependency(self, field):
         pool = Pool()
-        Module = pool.get('ir.module.module')
+        Module = pool.get('ir.module')
         Model = pool.get('ir.model')
-        ModuleDependency = pool.get('ir.module.module.dependency')
+        ModuleDependency = pool.get('ir.module.dependency')
 
         survey, = Module.search([
                 ('name', '=', 'survey')
