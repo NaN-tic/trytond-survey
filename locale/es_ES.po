@@ -14,10 +14,6 @@ msgctxt "error:survey.survey:"
 msgid "Survey %s has data and so cannot be dropped."
 msgstr "La encuesta %s tiene datos y por lo tanto no se puede borrar."
 
-msgctxt "error:survey.survey:"
-msgid "name_uniq"
-msgstr "name_uniq"
-
 msgctxt "field:DynamicModel,create_date:"
 msgid "Create Date"
 msgstr "Fecha creación"
