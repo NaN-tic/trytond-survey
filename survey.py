@@ -3,7 +3,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
 from trytond.model import ModelSingleton, ModelSQL, ModelStorage, ModelView, \
-    DictSchemaMixin, fields
+    DictSchemaMixin, fields, Unique
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
@@ -233,17 +233,16 @@ class Survey(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Survey, cls).__setup__()
+        t = cls.__table__()
         cls._buttons.update({
                 'create_menus': {},
                 'remove_menus': {},
                 })
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)',
-                'name_uniq'),
+            ('name_uniq',  Unique(t, t.name),
+                'Cannot create survey because the name must be unique.'),
             ]
         cls._error_messages.update({
-                'name_uniq': 'Cannot create survey because the name must be '
-                    'unique.',
                 'survey_with_data': 'Survey %s has data and so cannot be '
                     'dropped.',
                 })
