@@ -5,6 +5,7 @@
 from trytond.model import ModelSingleton, ModelSQL, ModelStorage, ModelView, \
     DictSchemaMixin, fields, Unique
 from trytond.pool import Pool, PoolMeta
+from trytond.tools import cursor_dict
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
 import re
@@ -44,7 +45,7 @@ class DynamicModel(ModelStorage):
         pool = Pool()
         if cls.module_survey_installed():
             Survey = pool.get('survey.survey')
-            cursor = Transaction().cursor
+            cursor = Transaction().connection.cursor()
             survey = Survey.__table__()
             cursor.execute(*survey.select(survey.id))
             for survey_id in cursor.fetchall():
@@ -62,7 +63,7 @@ class DynamicModel(ModelStorage):
         pool = Pool()
         if cls.module_survey_installed():
             Survey = pool.get('survey.survey')
-            cursor = Transaction().cursor
+            cursor = Transaction().connection.cursor()
             survey = Survey.__table__()
             cursor.execute(*survey.select(survey.id))
             for survey_id in cursor.fetchall():
@@ -75,7 +76,7 @@ class DynamicModel(ModelStorage):
         pool = Pool()
         if cls.module_survey_installed():
             Survey = pool.get('survey.survey')
-            cursor = Transaction().cursor
+            cursor = Transaction().connection.cursor()
             survey = Survey.__table__()
             cursor.execute(*survey.select(survey.id))
             for survey_id in cursor.fetchall():
@@ -171,7 +172,7 @@ class DynamicModel(ModelStorage):
         SurveyField = pool.get('survey.field')
         Model = pool.get('ir.model')
 
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         survey_field = SurveyField.__table__()
         query = survey_field.select(where=(survey_field.survey == survey_id))
         cursor.execute(*query)
@@ -188,7 +189,7 @@ class DynamicModel(ModelStorage):
             }
         result = {}
 
-        for field in cursor.dictfetchall():
+        for field in cursor_dict(cursor):
             name = remove_accents('%s' % slugify(field['name']))
             label = field['string']
             kvargs = {'string': label}
@@ -254,7 +255,7 @@ class Survey(ModelSQL, ModelView):
 
     def create_table(self):
         transaction = Transaction()
-        cursor = transaction.cursor
+        cursor = transaction.connection.cursor
         field_type = {
             'boolean': 'boolean',
             'integer': 'integer',
@@ -411,7 +412,7 @@ class Survey(ModelSQL, ModelView):
 
     @classmethod
     def drop_table(cls, surveys):
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         for survey in surveys:
             table = 'survey_%s' % survey.id
             cursor.execute("DROP TABLE IF EXISTS %s " % table)
@@ -441,7 +442,7 @@ class Survey(ModelSQL, ModelView):
                 try:
                     has_surveys = Survey.search([])
                 except:
-                    cursor = Transaction().cursor
+                    cursor = Transaction().connection.cursor()
                     cursor.rollback()
             except:
                 pass
