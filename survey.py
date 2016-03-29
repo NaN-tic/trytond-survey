@@ -15,7 +15,6 @@ import os
 
 __all__ = ['Configuration', 'Survey', 'SurveyField', 'View', 'Menu',
     'ActWindow', 'DynamicModel']
-__metaclass__ = PoolMeta
 _slugify_strip_re = re.compile(r'[^\w\s-]')
 _slugify_underscore_re = re.compile(r'[-\s]+')
 
@@ -255,7 +254,7 @@ class Survey(ModelSQL, ModelView):
 
     def create_table(self):
         transaction = Transaction()
-        cursor = transaction.connection.cursor
+        cursor = transaction.connection.cursor()
         field_type = {
             'boolean': 'boolean',
             'integer': 'integer',
@@ -540,18 +539,21 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
 
 
 class ActWindow:
+    __metaclass__ = PoolMeta
     __name__ = 'ir.action.act_window'
 
     survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE')
 
 
 class View:
+    __metaclass__ = PoolMeta
     __name__ = 'ir.ui.view'
 
     survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE')
 
 
 class Menu:
+    __metaclass__ = PoolMeta
     __name__ = 'ir.ui.menu'
 
     survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE')
