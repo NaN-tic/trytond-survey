@@ -120,14 +120,14 @@ class DynamicModel(ModelStorage):
             'write_uid')
         fields = [f for f in survey.fields_ if f not in exclude_fields]
         if view_type == 'tree':
-            xml = '<tree string="%s">\n' % survey.name
+            xml = '<tree>\n' % survey.name
             for field in fields:
                 if field.tree_view:
                     xml += '<field name="%s"/>\n' % slugify(field.name)
             xml += '</tree>\n'
             result['arch'] = xml
         elif view_type == 'form':
-            xml = '<form string="%s" col="2" colspan="4">\n' % survey.name
+            xml = '<form col="2" colspan="4">\n' % survey.name
             for field in fields:
                 xml += '<label name="%s"/>\n' % slugify(field.name)
                 xml += '<field name="%s"/>\n' % slugify(field.name)
@@ -479,7 +479,6 @@ class Survey(ModelSQL, ModelView):
 class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
     'Survey Field'
     __name__ = 'survey.field'
-    _rec_name = 'sequence'
     survey = fields.Many2One('survey.survey', 'Survey', ondelete='CASCADE',
         select=True)
     sequence = fields.Integer('Sequence')
@@ -536,6 +535,10 @@ class SurveyField(DictSchemaMixin, ModelSQL, ModelView):
             cls.selection.states['required'] |= Eval('type_') == 'selection'
         else:
             cls.selection.states['required'] = Eval('type_') == 'selection'
+
+    def get_rec_name(self, name):
+        if self.sequence:
+            return self.sequence.rec_name
 
 
 class ActWindow:

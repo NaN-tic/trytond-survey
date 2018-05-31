@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- This file is part survey module for Tryton.
 The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
-<form string="Survey" col="6">
+<form col="6">
     <label name="name"/>
     <field name="name"/>
     <label name="code"/>
@@ -14,8 +14,8 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         <page string="Fields" id="fields_">
             <field name="fields_" colspan="6"/>
             <group col="3" colspan="4" id="buttons">
-                <button name="create_menus" string="Create Menus"/>
-                <button name="remove_menus" string="Remove Menus"/>
+                <button name="create_menus"/>
+                <button name="remove_menus"/>
             </group>
         </page>
     </notebook>

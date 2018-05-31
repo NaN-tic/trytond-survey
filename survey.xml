@@ -164,5 +164,18 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <record model="ir.model.button" id="create_menus_button">
+            <field name="name">create_menus</field>
+            <field name="string">Create Menus</field>
+            <field name="model"
+                search="[('model', '=', 'survey.survey')]"/>
+        </record>
+        <record model="ir.model.button" id="remove_menus_button">
+            <field name="name">remove_menus</field>
+            <field name="string">Remove Menus</field>
+            <field name="model"
+                search="[('model', '=', 'survey.survey')]"/>
+        </record>
     </data>
 </tryton>
